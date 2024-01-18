@@ -1,0 +1,19 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+.btnGradient{
+    @apply bg-gradient-to-r from-[#490FF080] to-[#490FF000]
+};
+
+.cardBg {
+@apply bg-gradient-to-r from-[#a687fd0f] to-[#a687fd05]
+}
+
+.contentBG {
+  @apply bg-gradient-to-r from-[#a687fd0f] to-[#a687fd05]
+}
+
+.buttonGradient {
+  @apply bg-gradient-to-r from-[#3A048054] to-[#4C098E]
+}
