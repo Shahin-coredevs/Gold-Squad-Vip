@@ -1,5 +1,6 @@
 import folderIcon from "../../assets/FolderIcon.svg"
 import menuIcon from "../../assets/MenuIcon.svg"
+import DropDown from "../Shared/Navbar/Dropdown/DropDown";
 
 const ListView = ({data=[]}) => {
     return (
@@ -14,9 +15,7 @@ const ListView = ({data=[]}) => {
           <p className="text-[#7A8AA3] text-sm">{item?.des || ""}</p>
           </div>
         </div>
-        <div>
-          <img src={menuIcon} alt="" />
-        </div>
+        <DropDown type="action"/>
       </div>
             )
         })
