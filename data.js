@@ -26,3 +26,26 @@ export const dropdown = [
     }
 ]
 
+
+export const viewdata = [
+    {
+        title : "Folder 1",
+        des : "new neewds sdsfdsc"
+    },
+    {
+        title : "Folder 1",
+        des : "new neewds sdsfdsc"
+    },
+    {
+        title : "Folder 1",
+        des : "new neewds sdsfdsc"
+    },
+    {
+        title : "Folder 1",
+        des : "new neewds sdsfdsc"
+    },
+    {
+        title : "Folder 1",
+        des : "new neewds sdsfdsc"
+    }
+]

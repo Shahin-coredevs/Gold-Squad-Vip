@@ -4,13 +4,15 @@ import Topbar from "../Components/Topbar";
 
 const Layout = () => {
   return (
-    <div className="bg-primaryBg flex h-full ">
+    <div className="bg-primaryBg flex flex-row gap-10 ">
       <div>
         <Navbar />
+        
       </div>
 
-      <div className=" flex-1 h-full">
-        <Topbar />
+      <div className=" flex-1 ">
+      <Topbar />
+        
         <div className=" overflow-auto h-[calc(100vh-140px)]">
         <Outlet></Outlet>
         </div>

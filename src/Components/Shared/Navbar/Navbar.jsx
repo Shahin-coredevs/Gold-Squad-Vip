@@ -127,15 +127,15 @@ const Navbar = () => {
         </div>
     
         <div className="w-full top-0 h-full z-[1] absolute ">
-        <div className="absolute w-full top-0 left-0 ">
+        {/* <div className="absolute w-full top-0 left-0 ">
         <img className="w-full" src={topgradient} alt="" />
-        </div>
+        </div> */}
 
         <div className="absolute bottom-0 left-0">
         <img src={bottomgradient} alt="" />
         </div>
 
-        <div className="absolute top-0 ">
+        <div className="absolute top-0 left-0">
           <img src={topgradient} alt="" />
         </div>
 
