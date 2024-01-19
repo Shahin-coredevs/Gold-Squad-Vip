@@ -3,9 +3,13 @@ import { useEffect, useState } from "react";
 import linkArrow from "../../assets/External.svg";
 import DropDown from "../../Components/Shared/Navbar/Dropdown/DropDown";
 import { dropdown } from "../../../data";
+import Pagination from "../../Components/Shared/Pagination";
+
 const CoinNews = () => {
   const [filter, setFilter] = useState("ALL");
   const [data, setData] = useState([]);
+  const [currentPage, setCurrentPage] = useState(1);
+ 
 
   useEffect(() => {
     fetch("coinNews.json")
@@ -14,8 +18,21 @@ const CoinNews = () => {
         return filter == "ALL" ? data : data.filter((e) => e.type == filter);
       })
       .then((data) => setData(data));
-    console.log(filter);
+  
   }, [filter]);
+
+  const itemsPerPage = 5;
+  const startIndex = (currentPage - 1) * itemsPerPage;
+  const endIndex = startIndex + itemsPerPage;
+  const currentData = data.slice(startIndex, endIndex);
+
+  const totalPages = Math.ceil(data.length / itemsPerPage);
+
+  const handlePageChange = (page) => {
+    setCurrentPage(page);
+  };
+
+
 
   return (
     <div className="p-4 contentBG border  text-white  border-slate-800 my-5">
@@ -25,19 +42,9 @@ const CoinNews = () => {
           <p className={`${filter == "ALL" ? "underline" : ""} cursor-pointer`} onClick={() => setFilter("ALL")} >All</p>
           <p className={`${filter == "XRP" ? "underline" : ""} cursor-pointer`} onClick={() => setFilter("XRP")}>XRP</p>
           <p className={`${filter == "HBAR" ? "underline" : ""} cursor-pointer`} onClick={() => setFilter("HBAR")}>HBAR</p>
-          <p className={`${filter == "ADA" ? "underline" : ""} cursor-pointer`} onClick={() => setFilter("ADA")}> ADA</p>
-          <p
-            className={`${filter == "ELGO" ? "underline" : ""} cursor-pointer`}
-            onClick={() => setFilter("ELGO")}
-          >
-            ELGO
-          </p>
-          <p
-            className={`${filter == "ETH" ? "underline" : ""} cursor-pointer`}
-            onClick={() => setFilter("ETH")}
-          >
-            ETH
-          </p>
+          <p className={`${filter == "ADA" ? "underline" : ""} cursor-pointer`} onClick={() => setFilter("ADA")}>ADA</p>
+          <p className={`${filter == "ELGO" ? "underline" : ""} cursor-pointer`} onClick={() => setFilter("ELGO")}>ELGO</p>
+          <p className={`${filter == "ETH" ? "underline" : ""} cursor-pointer`} onClick={() => setFilter("ETH")}>ETH</p>
           <div className="flex  gap-2 items-center uppercase">
             <DropDown
               defaultValue={filter}
@@ -48,7 +55,7 @@ const CoinNews = () => {
         </div>
       </div>
 
-      {data.map((data, index) => (
+      {currentData.map((data, index) => (
         <div key={index} className="my-4 border-b-2 border-borderBottom pb-4">
           <p className="text-[#718096] mb-2">{data.date}</p>
           <div className="flex justify-between items-center ">
@@ -62,6 +69,10 @@ const CoinNews = () => {
           </div>
         </div>
       ))}
+      <Pagination 
+       currentPage={currentPage}
+        totalPages={totalPages}
+        onPageChange={handlePageChange} />
     </div>
   );
 };
