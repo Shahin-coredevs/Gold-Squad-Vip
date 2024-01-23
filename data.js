@@ -49,3 +49,33 @@ export const viewdata = [
         des : "new neewds sdsfdsc"
     }
 ]
+
+export const  notificationData = [
+   {
+    description : "Vestibulum sed neque consectetur viverra semper felis molestie tincidunt.",
+    time : "2 hours ago"
+   },
+   {
+    description : "Vestibulum sed neque consectetur viverra semper felis molestie tincidunt.",
+    time : "2 hours ago"
+   },
+   {
+    description : "Vestibulum sed neque consectetur viverra semper felis molestie tincidunt.",
+    time : "2 hours ago"
+   },
+   {
+    description : "Vestibulum sed neque consectetur viverra semper felis molestie tincidunt.",
+    time : "2 hours ago"
+   },
+   {
+    description : "Vestibulum sed neque consectetur viverra semper felis molestie tincidunt.",
+    time : "2 hours ago"
+   },
+   {
+    description : "Vestibulum sed neque consectetur viverra semper felis molestie tincidunt.",
+    time : "2 hours ago"
+   },
+   {
+    description : "Vestibulum sed neque consectetur viverra semper felis molestie tincidunt.",
+    time : "2 hours ago"
+   }]

@@ -1,24 +1,49 @@
 import searchIcon from "../../assets/search-normal.svg";
 import gridIcon from "../../assets/Icon (9).svg";
 import listIcon from "../../assets/Vector.svg";
-import { useState } from "react";
+import { useEffect, useRef, useState } from "react";
 import Modal from "../../Components/Shared/Modals/Modal";
 import ListView from "../../Components/View/ListView";
 import { viewdata } from "../../../data";
 import GridView from "../../Components/View/GridView";
+import importIcon from "../../assets/importIcon.svg"
 
 
 const ResourceHub = () => {
   const [modal, setModal] = useState(false);
   const [viewType,setViewType] =useState("list")
+  const [importFile,setImportFile] = useState(false)
+  const importRef = useRef()
   console.log(viewType);
+
+  
+
 
   return (
     <div>
+      {
+        importFile ?  
+        <div ref={importRef} className="my-5 h-52 py-12 flex justify-center border items-center text-white border-slate-800  rounded-lg">
+          <div className="border border-dashed border-[#490FF0] w-1/2 flex justify-between rounded-xl p-6 items-center gap-12">
+            <figure>
+              <img src={importIcon} alt="" />
+            </figure>
+            <div>
+              <p>Select a file or drag and drop here</p>
+              <p className="text-[#7A8AA3] text-[12px]">JPG, PNG, PDF or Video File.</p>
+            </div>
+            <label htmlFor="file-input"  className="bg-[#490FF0] px-6 py-2 rounded-lg text-lg cursor-pointer">Import File</label>
+            <input className="hidden" id="file-input" type="file"  />
+          </div>
+        </div> : ''
+      }
       <div className="relative my-5 h-14 flex justify-between px-2 items-center  text-white border border-slate-800  rounded-lg">
+         
         <div >
           <h3 className="text-lg font-bold">Resources Hub </h3>
         </div>
+       
+       
         <div className="flex justify-center items-center gap-6">
           <div className="relative">
             <input
@@ -30,6 +55,7 @@ const ResourceHub = () => {
           </div>
           <div>
             <p
+            onClick={()=> setImportFile(!importFile)}
               className="cursor-pointer border px-3 text-xl  py-2 rounded-xl border-borderBottom bg-primaryBg text-white "
             >
               Add New File
@@ -65,6 +91,8 @@ const ResourceHub = () => {
          </div>
         </Modal>
       </div>
+
+     
      
      <div className="my-5 cardBg rounded-xl px-5">
      {
@@ -80,3 +108,79 @@ const ResourceHub = () => {
 };
 
 export default ResourceHub;
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+// useEffect(() => {
+//   // Close the dropdown when the user clicks outside of it
+//   function handleClickOutside(event) {
+//     if (importRef.current && !importRef.current.contains(event.target)) {
+//         setImportFile(false);
+//         // setClicked(false);
+//     }
+// }
+// // Add event listener when the dropdown is open
+// if (importFile) {
+//     document.addEventListener('mousedown', handleClickOutside);
+   
+// } else {
+//     // Remove the event listener when the dropdown is closed
+//     document.removeEventListener('mousedown', handleClickOutside);
+// }
+// return () => {
+//     document.removeEventListener('mousedown', handleClickOutside);
+// };
+
+// }, [importFile]);
