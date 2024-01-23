@@ -23,7 +23,8 @@ const ExchangesListing = () => {
   };
 
   return (
-    <div className="p-4 contentBG border  text-white  border-slate-800 my-5">
+    <div className="p-4">
+      <div className="p-4 contentBG border rounded-xl  text-white  border-slate-800 my-5">
       <h3 className="text-xl font-semibold border-b-2 border-borderBottom pb-2">
         Exchange Listings
       </h3>
@@ -53,6 +54,7 @@ const ExchangesListing = () => {
         totalPages={totalPages}
         onPageChange={handlePageChange}
       />
+    </div>
     </div>
   );
 };

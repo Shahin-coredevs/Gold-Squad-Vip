@@ -3,10 +3,10 @@ import Cards from "./Cards";
 
 const Dashboard = () => {
   return (
-    <div className=" ">
+    <div className="p-4">
       {/* header section  */}
 
-      <div className="my-5 h-52 py-12 pl-6 text-white border border-slate-800  rounded-lg">
+      <div className="my-5 w-full h-52 py-12 pl-6 text-white border border-slate-800  rounded-lg">
         <h3 className="font-semibold">Welcome Back,</h3>
         <h1 className="text-[32px] font-bold mb-2">John Smith</h1>
         <p>VIP Mepmber</p>
@@ -14,7 +14,7 @@ const Dashboard = () => {
 
      <Cards/>
 
-     <div className="flex my-5 gap-5 w-full ">
+     <div className="flex flex-col lg:flex-row my-5 gap-5 w-full ">
      <div className="flex-1  rounded-lg  border border-slate-800 p-4 cardBg text-white">
    
            <h3 className="text-xl mb-2 font-medium border-b-2 border-borderBottom pb-2">Announcements</h3>
@@ -27,7 +27,7 @@ const Dashboard = () => {
 
      </div>
 
-     <div className="w-[620px] border border-slate-800 p-4 rounded-lg cardBg text-white flex justify-center items-end">
+     <div className="lg:w-[620px] border border-slate-800 p-4 rounded-lg cardBg text-white flex justify-center items-end">
      <p className="text-xl font-bold text-white">More Coming Soon</p>
      </div>
     

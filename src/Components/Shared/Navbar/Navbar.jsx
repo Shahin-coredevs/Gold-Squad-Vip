@@ -1,3 +1,4 @@
+/* eslint-disable react/prop-types */
 import dashboardicon from "../../../assets/Icon.svg";
 import exchangeIcon from "../../../assets/Icon (2).svg"
 import marketingIcon from "../../../assets/Icon (3).svg"
@@ -14,13 +15,15 @@ const style = {
   active: "text-white btnGradient w-full  p-3 mb-5 rounded-xl  flex gap-3",
   normal: "text-white   w-full p-3 flex gap-3 mb-5"
 };
-const Navbar = () => {
+const Navbar = ({sideBar}) => {
+  
   return (
-    <div>
-      <div className="w-72 h-screen bg-transparent relative">
+    <div className="">
+     
+      <div className="py-6  md:w-full overflow-y-auto overflow-hidden h-screen bg-transparent relative">
         {/* navbar content */}
-        <header>
-          <div className="flex  items-center justify-center gap-2">
+        <header className="w-screen md:w-full flex justify-between p-2 mb-5">
+          <div className="flex items-center justify-center gap-2">
             <div className="w-[60px] h-[60px]">
               {/* img */}
               <img
@@ -34,7 +37,12 @@ const Navbar = () => {
               <h3 className=" text-white font-bold">Gold Squad VIP</h3>
             </div>
           </div>
+           <button   onClick={sideBar} className="z-50  ml-24 block md:hidden">
+        <p className="text-4xl cursor-pointer text-red-400">X</p>
+      </button>
+          
         </header>
+       
 
         <div className="relative z-[2]">
           
@@ -115,20 +123,20 @@ const Navbar = () => {
               <img src={resourceIcon} alt="" /> Resource Hub
             </NavLink>
 
-            <button className=" text-white   w-full h-12 p-3 flex gap-3 mb-5"
+            <button className=" text-white   w-full p-3 flex gap-3 mb-5"
             >
               <img src={logoutIcon} alt="" /> Log Out
             </button>
           
         </div>
     
-        <div className="w-full top-0 h-full z-[1] absolute ">
+        <div className="w-screen top-0 h-full z-[1] absolute ">
         {/* <div className="absolute w-full top-0 left-0 ">
         <img className="w-full" src={topgradient} alt="" />
         </div> */}
 
-        <div className="absolute bottom-0 left-0">
-        <img src={bottomgradient} alt="" />
+        <div className="w-screen absolute bottom-0 left-0">
+        <img className="w-full" src={bottomgradient} alt="" />
         </div>
 
         {/* <div className="absolute top-0 left-0">
