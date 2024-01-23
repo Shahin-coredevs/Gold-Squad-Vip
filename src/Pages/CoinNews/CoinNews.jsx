@@ -1,5 +1,4 @@
 import { useEffect, useState } from "react";
-
 import linkArrow from "../../assets/External.svg";
 import DropDown from "../../Components/Shared/Navbar/Dropdown/DropDown";
 import { dropdown } from "../../../data";
@@ -25,9 +24,7 @@ const CoinNews = () => {
   const startIndex = (currentPage - 1) * itemsPerPage;
   const endIndex = startIndex + itemsPerPage;
   const currentData = data.slice(startIndex, endIndex);
-
   const totalPages = Math.ceil(data.length / itemsPerPage);
-
   const handlePageChange = (page) => {
     setCurrentPage(page);
   };

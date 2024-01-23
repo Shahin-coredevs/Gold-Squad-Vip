@@ -5,6 +5,7 @@ import ellipse from "../../assets/Ellipse.svg"
 import ellipse2 from "../../assets/Ellipse2.svg"
 import ellipse3 from "../../assets/Ellipse3.svg"
 import ellipse4 from "../../assets/Ellipse4.svg"
+import ARCProgress from "./ARC-Progress";
 
 const Cards = () => {
     return (
@@ -12,9 +13,10 @@ const Cards = () => {
              <div className="grid grid-cols-3 gap-4">
         {/* card section  */}
 
-        <div className=" h-[500px] border border-slate-800 p-4 cardBg">
+        <div className=" h-[500px] rounded-lg border border-slate-800 p-4 cardBg">
           {/* card-1  */}
-          <div className="flex">
+          <div className=" mb-40">
+          <div className="flex items-center">
             <div className="w-6 h-6 p-1 rounded-[20px]  bg-gradient-to-r from-[#C9646499] to-[#490FF033]">
               <img className=" w-full" src={bitcoinImg} alt="" />
             </div>
@@ -25,9 +27,13 @@ const Cards = () => {
           <p className=" text-[#718096] text-sm border-b-2 border-borderBottom pb-2 mt-1">
             Multifactorial Crypto Market Sentiment Analysis
           </p>
+          </div>
+          <div className="flex justify-center items-center">
+            <ARCProgress/>
+          </div>
         </div>
 
-        <div className=" h-[500px]  border border-slate-800 p-4 cardBg">
+        <div className=" h-[500px] rounded-lg  border border-slate-800 p-4 cardBg">
           {/* card-2  */}
 
           <h1 className=" text-white text-xl border-b-2 border-borderBottom pb-2 mt-1">
@@ -75,7 +81,7 @@ const Cards = () => {
           
         </div>
 
-        <div className=" h-[500px] border border-slate-800 p-4 cardBg ">
+        <div className=" h-[500px] rounded-lg border border-slate-800 p-4 cardBg ">
           {/* card-3  */}
 
           <h1 className=" text-white text-xl border-b-2 border-borderBottom pb-2 mt-1">

@@ -13,7 +13,7 @@ const Layout = () => {
       <div className=" flex-1 ">
       <Topbar />
         
-        <div className=" overflow-auto h-[calc(100vh-140px)]">
+        <div className="pr-2 overflow-auto h-[calc(100vh-140px)]">
         <Outlet></Outlet>
         </div>
       </div>

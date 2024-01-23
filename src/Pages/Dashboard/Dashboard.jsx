@@ -14,8 +14,8 @@ const Dashboard = () => {
 
      <Cards/>
 
-     <div className="flex mt-5 gap-5 w-full ">
-     <div className="flex-1   border border-slate-800 p-4 cardBg text-white">
+     <div className="flex my-5 gap-5 w-full ">
+     <div className="w-[620px]  rounded-lg  border border-slate-800 p-4 cardBg text-white">
    
            <h3 className="text-xl mb-2 font-medium border-b-2 border-borderBottom pb-2">Announcements</h3>
            <div>
@@ -27,7 +27,7 @@ const Dashboard = () => {
 
      </div>
 
-     <div className="w-[620px] border border-slate-800 p-4 cardBg text-white flex justify-center items-end">
+     <div className="flex-1 border border-slate-800 p-4 rounded-lg cardBg text-white flex justify-center items-end">
      <p className="text-xl font-bold text-white">More Coming Soon</p>
      </div>
     

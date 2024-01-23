@@ -1,37 +1,53 @@
 /* eslint-disable react/prop-types */
-import { useEffect,  useState } from "react";
+import { useEffect,  useRef,  useState } from "react";
 import downArrow from "../../../../assets/downarrow.svg";
 import menuIcon from "../../../../assets/MenuIcon.svg";
 const DropDown = ({ data = [], getValue, type = "" }) => {
   const [selected, setSelected] = useState({ name: "VIEW MORE", value: "ALL" });
   const [isVisible, setIsVisible] = useState(false);
- 
+  const dropRef = useRef();
+  useEffect(() => {
+      // Close the dropdown when the user clicks outside of it
+      function handleClickOutside(event) {
+        if (dropRef.current && !dropRef.current.contains(event.target)) {
+            setIsVisible(false);
+            // setClicked(false);
+        }
+    }
+    // Add event listener when the dropdown is open
+    if (isVisible) {
+        document.addEventListener('mousedown', handleClickOutside);
+       
+    } else {
+        // Remove the event listener when the dropdown is closed
+        document.removeEventListener('mousedown', handleClickOutside);
+    }
+    return () => {
+        document.removeEventListener('mousedown', handleClickOutside);
+    };
+
+  }, [isVisible]);
+
   useEffect(() => {
     if (type != "action") getValue(selected);
   }, [selected]);
 
-  window.addEventListener('click', function(e){   
-    if (document.getElementById('clickbox').contains(e.target)){
-      return
-    } else{
-      setIsVisible(false)
-    }
-  });
-
   if (type == "action") {
     return (
-      <div id="clickbox" className="relative">
-        <div onClick={() => setIsVisible(!isVisible)}>
+      <div ref={dropRef} className="relative ">
+        <div className="cursor-pointer"  onClick={() => setIsVisible(!isVisible)}>
           <img src={menuIcon} alt="" />
         </div>
-        <div className={`absolute cardBg flex flex-col ${isVisible ? "" : "hidden"}`}>
-          <p className="text-white shrink-0 break-keep">action 1</p>
-          <p className="text-white">action 2</p>
-          <p className="text-white">action 3</p>
+        <div   className={`cursor-pointer absolute top-5 right-4 cardBg text-sm border border-borderBottom rounded-lg w-28   flex flex-col bg-[#1E2033] ${isVisible ? "" : "hidden"}`}>
+          <p className="text-white px-3 py-2  hover:bg-[#490FF0] ">Add File</p>
+          <p className="text-white my-5  px-3 py-2  hover:bg-[#490FF0]">Add Folder</p>
+          <p className="text-red-500   px-3 py-2  hover:bg-[#490FF0]">Delete</p>
         </div>
       </div>
     );
   }
+  
+
   return (
     <div className="relative">
       <div

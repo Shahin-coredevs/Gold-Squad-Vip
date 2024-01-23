@@ -6,12 +6,8 @@ import NFTIcon from "../../../assets/Icon (5).svg"
 import airdropIcon from "../../../assets/Icon (6).svg"
 import resourceIcon from "../../../assets/Icon (7).svg"
 import logoutIcon from "../../../assets/Icon (8).svg"
-import topgradient from "../../../assets/top.svg"
+// import topgradient from "../../../assets/top.svg"
 import bottomgradient from "../../../assets/bottom.svg"
-
-
-
-
 import { NavLink } from "react-router-dom";
 
 const style = {
@@ -135,9 +131,9 @@ const Navbar = () => {
         <img src={bottomgradient} alt="" />
         </div>
 
-        <div className="absolute top-0 left-0">
+        {/* <div className="absolute top-0 left-0">
           <img src={topgradient} alt="" />
-        </div>
+        </div> */}
 
         </div>
 
