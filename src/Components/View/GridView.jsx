@@ -3,7 +3,7 @@ import DropDown from "../Shared/Navbar/Dropdown/DropDown";
 
 const GridView = ({ data = [] }) => {
   return (
-    <div className="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-5 gap-10 py-5 px-4">
+    <div className="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-5 gap-10 py-5 px-4 cursor-pointer">
       {data.map((item, index) => {
         return (
           <div key={index}>

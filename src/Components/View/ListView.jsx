@@ -6,7 +6,7 @@ const ListView = ({ data = [] }) => {
     return (
       <div
         key={index}
-        className=" p-4 rounded-lg flex justify-between items-center"
+        className=" p-4 rounded-lg flex justify-between items-center cursor-pointer"
       >
         <div className="flex space-x-4 items-center">
           <img src={folderIcon} alt="" />

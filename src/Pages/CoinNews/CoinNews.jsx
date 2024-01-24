@@ -11,6 +11,7 @@ const CoinNews = () => {
  
 
   useEffect(() => {
+    setCurrentPage(1)
     fetch("coinNews.json")
       .then((res) => res.json())
       .then((data) => {
@@ -36,6 +37,8 @@ const CoinNews = () => {
 
   const typeNameForLarge = typeName.slice(0,5)
   const typeNameForLargeRemine = typeName.slice(typeNameForLarge.length,typeName.length)
+  const typeNameForSm = typeName.slice(0,3)
+  const typeNameForSmRemine = typeName.slice(typeNameForSm.length,typeName.length)
  
 
 
@@ -54,14 +57,14 @@ const CoinNews = () => {
           <p className={`${filter == "ELGO" ? "underline" : ""} cursor-pointer`} onClick={() => setFilter("ELGO")}>ELGO</p>
           <p className={`${filter == "ETH" ? "underline" : ""} cursor-pointer`} onClick={() => setFilter("ETH")}>ETH</p> */}
           {
-            typeNameForLarge.map((e, index)=> {
+            typeNameForSm.map((e, index)=> {
              return <p key={index} className={`${filter == e ? "underline" : ""} cursor-pointer`} onClick={() => setFilter(e)} >{e}</p>
             })
           }
           <div className="flex  gap-2 items-center uppercase">
             <DropDown
               defaultValue={filter}
-              data={typeNameForLargeRemine}
+              data={typeNameForSmRemine}
               getValue={(e) => setFilter(e)}
             />
           </div>

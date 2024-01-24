@@ -1,7 +1,7 @@
 /* eslint-disable react/prop-types */
-
+import verifiedSvg from "../../../assets/verified.svg"
 const Cards = ({ data }) => {
-  const { Name, date, description, img, verified, profileImage } = data;
+  const { Name, date, description, img, profileImage } = data;
   return (
     <div>
       <div className="flex gap-1 mb-10">
@@ -13,9 +13,9 @@ const Cards = ({ data }) => {
             <div className="flex w-full md:gap-3 gap-1 text-white ">
               <p className="font-bold w-2/3 md:w-42 lg:w-32">{Name || ""}</p>
               <figure className="w-4 h-4 rounded-full">
-                <img className="w-full h-full" src={verified} alt="" />
+                <img className="w-full h-full" src={verifiedSvg} alt="" />
               </figure>
-              <p className="text-[#7A8AA3] w-full">{date || ""}</p>
+              <p className="text-[#7A8AA3] w-full text-sm md:text-base">{date || ""}</p>
             </div>
           </div>
 

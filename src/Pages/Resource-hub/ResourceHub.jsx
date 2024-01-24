@@ -20,8 +20,8 @@ const ResourceHub = () => {
             <figure>
               <img src={importIcon} alt="" />
             </figure>
-            <div>
-              <p>Select a file or drag and drop here</p>
+            <div className="text-center">
+              <p className="text-[12px] md:text-lg">Select a file or drag and drop here</p>
               <p className="text-[#7A8AA3] text-[12px]">
                 JPG, PNG, PDF or Video File.
               </p>

@@ -10,6 +10,7 @@ import logoutIcon from "../../../assets/Icon (8).svg"
 // import topgradient from "../../../assets/top.svg"
 import bottomgradient from "../../../assets/bottom.svg"
 import { NavLink } from "react-router-dom";
+import closeIcon from "../../../assets/close.svg"
 
 const style = {
   active: "text-white btnGradient w-full  p-3 mb-5 rounded-xl  flex gap-3",
@@ -18,9 +19,9 @@ const style = {
 const Navbar = ({sideBar}) => {
   
   return (
-    <div className="h-screen">
+    <div className="h-full">
      
-      <div className="h-screen md:w-full overflow-y-auto overflow-hidden bg-transparent relative">
+      <div className="h-full md:w-full overflow-y-auto overflow-hidden bg-transparent relative">
         {/* navbar content */}
         <header className="w-screen md:w-full flex justify-between p-2 mb-5">
           <div className="flex items-center justify-center gap-2">
@@ -38,7 +39,7 @@ const Navbar = ({sideBar}) => {
             </div>
           </div>
            <button   onClick={sideBar} className="z-50  ml-24 block md:hidden">
-        <p className="text-4xl cursor-pointer text-white">X</p>
+       <img src={closeIcon} alt="" />
       </button>
           
         </header>

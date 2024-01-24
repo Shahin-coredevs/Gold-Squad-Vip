@@ -57,17 +57,17 @@ const DropDown = ({ data = [], getValue, type = "" }) => {
     return (
       <div ref={dropRef} className="relative  z-20 " onClick={() => setIsVisible(!isVisible)}>
         <div className="cursor-pointer"  >
-        <img src={notificationsvg} alt="" />
+        <img className=" w-10 h-10" src={notificationsvg} alt="" />
         </div>
-        <div   className={`cursor-pointer absolute top-5 right-4 cardBg text-sm border border-borderBottom rounded-lg w-[400px] p-2 flex flex-col  bg-[#1E2033] ${isVisible ? "" : "hidden"}`}>
+        <div   className={` cursor-pointer absolute top-10 right-1 md:top-10 md:right-5 cardBg text-sm border border-borderBottom rounded-lg w-[250px] md:w-[400px] p-2 flex flex-col  bg-[#1E2033] ${isVisible ? "" : "hidden"}`}>
         {
           data.map((item,index)=>  (
            <div key={index} className="flex justify-between  px-3 py-2 rounded-lg hover:bg-[#490FF0]">
             <div className="flex gap-3 mb-2">
               <img src={notificationsvg} alt="" />
-              <p className="text-left w-60 truncate">{item.description}</p>
+              <p className="text-left w-40 md:w-60 truncate">{item.description}</p>
             </div>
-            <h6 className="text-end w-24">{item.time}</h6>
+            <h6 className="text-end w-fit hidden md:block md:w-24">{item.time}</h6>
             </div>
           ))
          }

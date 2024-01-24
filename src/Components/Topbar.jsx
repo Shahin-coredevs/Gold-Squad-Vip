@@ -20,12 +20,12 @@ const Topbar = ({sideBar}) => {
   return (
     <div>
        
-        <div className="w-full bg-gradient-to-r from-[#0D05527A] to-[#0D055233] mb-5 text-white px-2 py-10 flex justify-between items-center">
+        <div className="p-6 w-full bg-gradient-to-r from-[#0D05527A] to-[#0D055233] mb-5 text-white py-10 flex justify-between items-center">
       <h3 className="text-lg font-bold">{title[path]}</h3>
      <div className="flex gap-5">
-     <button  className="w-10 h-10 pr-2 cardBg flex justify-center items-center  border border-borderBottom relative">
+     <button  className="h-10 w-10 pr-2 cardBg flex justify-center items-center  relative">
         
-        <p className="text-red-600 font-bold absolute z-10 top-0  right-1">{notificationData.length}</p>
+        <p className="text-white m-1 px-2 rounded-lg bg-rose-600 font-bold absolute z-10 -top-4  -right-2 md:-right-3">{notificationData.length}</p>
         <DropDown data={notificationData} type="notification"/>
       </button>
       <button onClick={sideBar} className="block md:hidden">
