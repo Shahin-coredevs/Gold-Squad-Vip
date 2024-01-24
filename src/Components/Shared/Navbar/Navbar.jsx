@@ -18,9 +18,9 @@ const style = {
 const Navbar = ({sideBar}) => {
   
   return (
-    <div className="">
+    <div className="h-screen">
      
-      <div className="py-6  md:w-full overflow-y-auto overflow-hidden h-screen bg-transparent relative">
+      <div className="h-screen md:w-full overflow-y-auto overflow-hidden bg-transparent relative">
         {/* navbar content */}
         <header className="w-screen md:w-full flex justify-between p-2 mb-5">
           <div className="flex items-center justify-center gap-2">
@@ -38,13 +38,13 @@ const Navbar = ({sideBar}) => {
             </div>
           </div>
            <button   onClick={sideBar} className="z-50  ml-24 block md:hidden">
-        <p className="text-4xl cursor-pointer text-red-400">X</p>
+        <p className="text-4xl cursor-pointer text-white">X</p>
       </button>
           
         </header>
        
 
-        <div className="relative z-[2]">
+        <div className=" relative z-[2]">
           
             <NavLink
               to="/dashboard"

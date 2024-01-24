@@ -1,24 +1,29 @@
 import { useEffect, useState } from "react";
 import linkArrow from "../../assets/External.svg";
 import DropDown from "../../Components/Shared/Navbar/Dropdown/DropDown";
-import { dropdown } from "../../../data";
 import Pagination from "../../Components/Shared/Pagination";
 
 const CoinNews = () => {
   const [filter, setFilter] = useState("ALL");
   const [data, setData] = useState([]);
   const [currentPage, setCurrentPage] = useState(1);
+  const [typeName,setTypeName] =useState([])
  
 
   useEffect(() => {
     fetch("coinNews.json")
       .then((res) => res.json())
       .then((data) => {
+        const allTypeName = data.map(e=> (e.type))
+        const typeName = [...new Set(allTypeName)]
+        setTypeName(typeName); 
         return filter == "ALL" ? data : data.filter((e) => e.type == filter);
       })
-      .then((data) => setData(data));
+      .then((data) => {setData(data)});
+      // console.log(filter);
   
   }, [filter]);
+  
 
   const itemsPerPage = 5;
   const startIndex = (currentPage - 1) * itemsPerPage;
@@ -29,24 +34,35 @@ const CoinNews = () => {
     setCurrentPage(page);
   };
 
+  const typeNameForLarge = typeName.slice(0,5)
+  const typeNameForLargeRemine = typeName.slice(typeNameForLarge.length,typeName.length)
+ 
+
 
 
   return (
     <div className="p-4 contentBG border  text-white  border-slate-800 my-5">
-      <div className="flex justify-between items-center border-b-2 border-borderBottom pb-2">
+      <div className="flex flex-col md:flex-row justify-between  border-b-2 border-borderBottom pb-2">
         <h3 className="text-xl font-semibold ">Coin News</h3>
         <div className="flex justify-between items-center  gap-8 text-sm">
-          <p className={`${filter == "ALL" ? "underline" : ""} cursor-pointer`} onClick={() => setFilter("ALL")} >All</p>
+        <p className={`${filter == "ALL" ? "underline" : ""} cursor-pointer`} onClick={() => setFilter("ALL")} >All</p>
+          {/* 
+           
           <p className={`${filter == "XRP" ? "underline" : ""} cursor-pointer`} onClick={() => setFilter("XRP")}>XRP</p>
-          {/* <p className={`${filter == "HBAR" ? "underline" : ""} cursor-pointer`} onClick={() => setFilter("HBAR")}>HBAR</p>
+          <p className={`${filter == "HBAR" ? "underline" : ""} cursor-pointer`} onClick={() => setFilter("HBAR")}>HBAR</p>
           <p className={`${filter == "ADA" ? "underline" : ""} cursor-pointer`} onClick={() => setFilter("ADA")}>ADA</p>
           <p className={`${filter == "ELGO" ? "underline" : ""} cursor-pointer`} onClick={() => setFilter("ELGO")}>ELGO</p>
           <p className={`${filter == "ETH" ? "underline" : ""} cursor-pointer`} onClick={() => setFilter("ETH")}>ETH</p> */}
+          {
+            typeNameForLarge.map((e, index)=> {
+             return <p key={index} className={`${filter == e ? "underline" : ""} cursor-pointer`} onClick={() => setFilter(e)} >{e}</p>
+            })
+          }
           <div className="flex  gap-2 items-center uppercase">
             <DropDown
               defaultValue={filter}
-              data={dropdown}
-              getValue={(e) => setFilter(e.value)}
+              data={typeNameForLargeRemine}
+              getValue={(e) => setFilter(e)}
             />
           </div>
         </div>

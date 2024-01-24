@@ -34,7 +34,7 @@ const ExchangesListing = () => {
             key={index}
             className="flex justify-between items-center border-b-2 border-borderBottom"
           >
-            <div className="my-4 flex justify-center items-center gap-4">
+            <div className="my-4 flex justify-between items-center gap-4">
               <figure className="w-6 h-6">
                 <img className="h-full w-full" src={item.image} alt="" />
               </figure>
@@ -42,7 +42,7 @@ const ExchangesListing = () => {
                 {item.title}
               </h3>
             </div>
-            <div className="flex justify-center text-[#718096] font-semibold text-[12px]">
+            <div className="flex justify-center text-[#718096] font-semibold w-32 text-[12px]">
               {item.time}
             </div>
           </div>

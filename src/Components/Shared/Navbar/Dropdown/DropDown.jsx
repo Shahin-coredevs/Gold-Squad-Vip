@@ -5,7 +5,7 @@ import downArrow from "../../../../assets/downarrow.svg";
 import menuIcon from "../../../../assets/MenuIcon.svg";
 import notificationsvg from "../../../../assets/Notification-Icon.svg"
 const DropDown = ({ data = [], getValue, type = "" }) => {
-  const [selected, setSelected] = useState({ name: "VIEW MORE", value: "ALL" });
+  const [selected, setSelected] = useState("ALL");
   const [isVisible, setIsVisible] = useState(false);
   const dropRef = useRef();
 
@@ -34,6 +34,7 @@ const DropDown = ({ data = [], getValue, type = "" }) => {
   useEffect(() => {
     if (type != "action" && type != "notification") getValue(selected);
   }, [selected]);
+ 
 
           // Resourcehub Menu Dropdown action  
   if (type == "action") {
@@ -60,8 +61,8 @@ const DropDown = ({ data = [], getValue, type = "" }) => {
         </div>
         <div   className={`cursor-pointer absolute top-5 right-4 cardBg text-sm border border-borderBottom rounded-lg w-[400px] p-2 flex flex-col  bg-[#1E2033] ${isVisible ? "" : "hidden"}`}>
         {
-          data.map(item=>  (
-           <div className="flex justify-between  px-3 py-2 rounded-lg hover:bg-[#490FF0]">
+          data.map((item,index)=>  (
+           <div key={index} className="flex justify-between  px-3 py-2 rounded-lg hover:bg-[#490FF0]">
             <div className="flex gap-3 mb-2">
               <img src={notificationsvg} alt="" />
               <p className="text-left w-60 truncate">{item.description}</p>
@@ -74,15 +75,19 @@ const DropDown = ({ data = [], getValue, type = "" }) => {
       </div>
     );
   }
+
+
   
           // Coin News dropdown 
+
+       
   return (
     <div className="relative">
       <div
         onClick={() => setIsVisible(!isVisible)}
         className="cardBg min-w-28 justify-between flex gap-2 text-white py-2 px-1 cursor-pointer"
       >
-        {selected.name}
+        {selected}
         <img src={downArrow} alt="" />
       </div>
       {isVisible && (
@@ -98,7 +103,7 @@ const DropDown = ({ data = [], getValue, type = "" }) => {
                 className=""
               >
                 <p className="text-sm hover:border-buttonBorder  mb-5 w-full">
-                  {item.name}
+                  {item}
                 </p>
               </div>
             );

@@ -13,12 +13,14 @@ const AirdropsAlerts = () => {
     },[])
 
     return (
-        <div className="cardBg w-2/3 p-5 rounded-xl">
+       <div className="p-4">
+         <div className="cardBg lg:w-2/3 p-5 rounded-xl">
       
       {
         data.map(data=><Cards  key={data?.id} data={data}/>)
       }
     </div>
+       </div>
         
     );
 };

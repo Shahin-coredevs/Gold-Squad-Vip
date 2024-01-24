@@ -13,10 +13,10 @@ const ResourceHub = () => {
   const [viewType, setViewType] = useState("list");
   const [importFile, setImportFile] = useState(false);
   return (
-    <div>
+    <div className="p-4">
       {importFile ? (
-        <div className="my-5 h-52 py-12 flex justify-center border items-center text-white border-slate-800  rounded-lg">
-          <div className="border border-dashed border-[#490FF0] w-1/2 flex justify-between rounded-xl p-6 items-center">
+        <div className="my-5 lg:h-52 py-12 flex justify-center border items-center text-white border-slate-800  rounded-lg">
+          <div className="border border-dashed border-[#490FF0] w-3/4 xl:w-1/2 flex flex-col lg:flex-row gap-5 justify-between rounded-xl p-6 items-center">
             <figure>
               <img src={importIcon} alt="" />
             </figure>
@@ -38,51 +38,60 @@ const ResourceHub = () => {
       ) : (
         ""
       )}
-      <div className="relative my-5 h-14 flex justify-between px-2 items-center  text-white border border-slate-800  rounded-lg">
+      <div className="relative my-5  xl:h-14 flex flex-col gap-6 xl:flex-row justify-between px-2 py-3 items-center  text-white border border-slate-800  rounded-lg">
         <div>
           <h3 className="text-lg font-bold">Resources Hub </h3>
         </div>
 
-        <div className="flex justify-center items-center gap-6">
-          <div className="relative">
-            <input
-              placeholder="Search"
-              className="border pl-10  text-xl  py-2 rounded-xl border-borderBottom bg-primaryBg text-white "
-              type="text"
-            />
-            <img className="absolute top-4  left-3" src={searchIcon} alt="" />
-          </div>
-          <div>
-            <p
-              onClick={() => setImportFile(!importFile)}
-              className="cursor-pointer border px-3 text-xl  py-2 rounded-xl border-borderBottom bg-primaryBg text-white "
-            >
-              Add New File
-            </p>
-          </div>
-          <div>
-            <p
-              onClick={() => setModal(true)}
-              className="cursor-pointer border px-3 text-xl  py-2 rounded-xl border-borderBottom bg-primaryBg text-white "
-            >
-              Create New Folder
-            </p>
-          </div>
-          <div
-            onClick={() => setViewType("list")}
-            className={`${
-              viewType == "list" ? "bg-[#490FF0]" : "bg-primaryBg"
-            } cursor-pointer border px-3 h-10 py-3 rounded-xl border-borderBottom  text-white`}
-          >
-            <img className="h-full" src={listIcon} alt="" />
-          </div>
-          <div
-            onClick={() => setViewType("grid")}
-            className={`${
-              viewType == "grid" ? "bg-[#490FF0]" : "bg-primaryBg"
-            } cursor-pointer border px-3 h-10 py-3 rounded-xl border-borderBottom  text-white`}
-          >
-            <img className="h-full" src={gridIcon} alt="" />
+        <div className="flex flex-wrap relative  xl:justify-center xl:items-center   xl:gap-6">
+          <div className="flex   lg:flex-row gap-5 justify-between"></div>
+          <div className="flex justify-center items-center gap-6">
+            <div className="flex flex-wrap gap-4">
+              <div className="relative order-1 w-[200px] lg:w-fit ">
+                <input
+                  placeholder="Search"
+                  className="border pl-10 w-full  text-xl  py-2 rounded-xl border-borderBottom bg-primaryBg text-white "
+                  type="text"
+                />
+                <img
+                  className="absolute top-4  left-3"
+                  src={searchIcon}
+                  alt=""
+                />
+              </div>
+              <div className="order-4 md:order-2 w-28 md:w-fit">
+                <p
+                  onClick={() => setImportFile(!importFile)}
+                  className="cursor-pointer border px-3 xl:text-xl w-full text-sm  py-2 rounded-xl border-borderBottom bg-primaryBg text-white"
+                >
+                  Add New File
+                </p>
+              </div>
+              <div className="order-5 md:order-3 w-36 xl:w-fit">
+                <p
+                  onClick={() => setModal(true)}
+                  className="cursor-pointer border px-3 text-sm w-full xl:text-xl  py-2 rounded-xl border-borderBottom bg-primaryBg text-white "
+                >
+                  Create New Folder
+                </p>
+              </div>
+              <div
+                onClick={() => setViewType("list")}
+                className={`${
+                  viewType == "list" ? "bg-[#490FF0]" : "bg-primaryBg"
+                }  cursor-pointer border px-3 h-10 py-3 rounded-xl border-borderBottom order-2 text-white md:order-4`}
+              >
+                <img className="h-full" src={listIcon} alt="" />
+              </div>
+              <div
+                onClick={() => setViewType("grid")}
+                className={`${
+                  viewType == "grid" ? "bg-[#490FF0]" : "bg-primaryBg"
+                } cursor-pointer border px-3 h-10 py-3 rounded-xl border-borderBottom  text-white order-3 md:order-5`}
+              >
+                <img className="h-full" src={gridIcon} alt="" />
+              </div>
+            </div>
           </div>
         </div>
       </div>
@@ -121,65 +130,6 @@ const ResourceHub = () => {
 };
 
 export default ResourceHub;
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
 
 // useEffect(() => {
 //   // Close the dropdown when the user clicks outside of it

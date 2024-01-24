@@ -15,15 +15,16 @@ export const dropdown = [
         value: "DOGE"
     },
     {
-        id: 2,
+        id: 4,
         name: "MATIC",
         value: 'MATIC'
     },
     {
-        id: 1,
+        id: 5,
         name: "GALA",
         value: "GALA"
-    }
+    },
+    
 ]
 
 
